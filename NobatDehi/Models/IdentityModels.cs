@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -15,8 +16,15 @@ namespace NobatDehi.Models
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Add custom user claims here
+            userIdentity.RemoveClaim(userIdentity.FindFirst(ClaimTypes.Name));
+            userIdentity.AddClaim(new Claim(ClaimTypes.Name, FirstName + " " + LastName));
+
             return userIdentity;
         }
+        [Required]
+        public string FirstName { get; set; }
+        [Required]
+        public string LastName { get; set; }
 
         public ICollection<CancelTime> CancelTimes { get; internal set; }
         public ICollection<Doctor> Doctors { get; internal set; }
