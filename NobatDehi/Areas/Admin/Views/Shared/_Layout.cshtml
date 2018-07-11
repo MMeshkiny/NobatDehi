@@ -35,6 +35,18 @@
               <li>@Html.ActionLink("تعریف پزشک", "Create", "DoctorManagement", new { area = "Admin" }, null)</li>
             </ul>
           </li>
+          <li>
+            @Html.ActionLink("مدیریت تخصص ها", "Index", "Specialties", new { area = "Admin" }, null)
+            <ul>
+              <li>@Html.ActionLink("تعریف تخصص", "Create", "Specialties", new { area = "Admin" }, null)</li>
+            </ul>
+          </li>
+          <li>
+            @Html.ActionLink("مدیریت مراکز درمانی", "Index", "MedicalCenters", new { area = "Admin" }, null)
+            <ul>
+              <li>@Html.ActionLink("تعریف مرکز درمانی", "Create", "MedicalCenters", new { area = "Admin" }, null)</li>
+            </ul>
+          </li>
         </ul>
       </div>
       <div class="col-sm-9">

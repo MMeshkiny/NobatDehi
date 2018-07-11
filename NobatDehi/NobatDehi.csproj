@@ -199,6 +199,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\DoctorManagementController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MedicalCentersController.cs" />
     <Compile Include="Areas\Admin\Controllers\PanelController.cs" />
     <Compile Include="Areas\Admin\Controllers\SpecialtiesController.cs" />
     <Compile Include="Areas\Admin\Models\AddDoctorSpetialtyViewModel.cs" />
@@ -254,6 +255,11 @@
     <Content Include="Areas\Admin\Views\Specialties\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DoctorManagement\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\DoctorManagement\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\MedicalCenters\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\MedicalCenters\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\MedicalCenters\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\MedicalCenters\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\MedicalCenters\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
