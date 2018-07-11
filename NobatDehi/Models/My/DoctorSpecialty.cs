@@ -11,11 +11,11 @@ namespace NobatDehi.Models
     {
         public int Id { get; set; }
 
-        public int? DoctorId { get; set; }
+        public string DoctorId { get; set; }
 
         public int? SpecialtyId { get; set; }
 
-        public virtual Doctor Doctor { get; set; }
+        public virtual ApplicationUser Doctor { get; set; }
 
         public virtual Specialty Specialty { get; set; }
     }

@@ -20,9 +20,9 @@ namespace NobatDehi.Models
 
         public int? MedicalCenterId { get; set; }
 
-        public int DoctorId { get; set; }
+        public string DoctorId { get; set; }
 
-        public virtual Doctor Doctor { get; set; }
+        public virtual ApplicationUser Doctor { get; set; }
 
         public virtual MedicalCenter MedicalCenter { get; set; }
 

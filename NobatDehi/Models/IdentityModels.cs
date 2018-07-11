@@ -27,9 +27,11 @@ namespace NobatDehi.Models
         public string LastName { get; set; }
 
         public ICollection<CancelTime> CancelTimes { get; internal set; }
-        public ICollection<Doctor> Doctors { get; internal set; }
+        //public ICollection<Doctor> Doctors { get; internal set; }
         public ICollection<Factor> Factors { get; internal set; }
         public ICollection<VisitTime> VisitTimes { get; internal set; }
+        public virtual ICollection<DoctorMedicalCenter> DoctorMedicalCenters { get; set; }
+        public virtual ICollection<DoctorSpecialty> DoctorSpecialties { get; set; }
     }
 
     public partial class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -43,5 +45,9 @@ namespace NobatDehi.Models
         {
             return new ApplicationDbContext();
         }
+
+        //public System.Data.Entity.DbSet<NobatDehi.Models.ApplicationUser> ApplicationUsers { get; set; }
+
+        //public System.Data.Entity.DbSet<NobatDehi.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

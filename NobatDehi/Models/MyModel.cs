@@ -23,7 +23,7 @@ namespace NobatDehi.Models
 
         //public virtual DbSet<ApplicationUser> AspNetUsers { get; set; }
         public virtual DbSet<CancelTime> CancelTimes { get; set; }
-        public virtual DbSet<Doctor> Doctors { get; set; }
+        //public virtual DbSet<Doctor> Doctors { get; set; }
         public virtual DbSet<DoctorMedicalCenter> DoctorMedicalCenters { get; set; }
         public virtual DbSet<DoctorSpecialty> DoctorSpecialties { get; set; }
         public virtual DbSet<Factor> Factors { get; set; }
@@ -43,11 +43,11 @@ namespace NobatDehi.Models
                 .WithOptional(e => e.User)
                 .HasForeignKey(e => e.PatientId);
 
-            modelBuilder.Entity<ApplicationUser>()
-                .HasMany(e => e.Doctors)
-                .WithRequired(e => e.User)
-                .HasForeignKey(e => e.UserId)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<ApplicationUser>()
+            //    .HasMany(e => e.Doctors)
+            //    .WithRequired(e => e.User)
+            //    .HasForeignKey(e => e.UserId)
+            //    .WillCascadeOnDelete(false);
 
             //modelBuilder.Entity<ApplicationUser>()
             //    .HasMany(e => e.DoctorMedicalCenters)
@@ -69,7 +69,7 @@ namespace NobatDehi.Models
                 .WithOptional(e => e.MedicalCenterType)
                 .HasForeignKey(e => e.TypeId);
 
-            modelBuilder.Entity<Doctor>()
+            modelBuilder.Entity<ApplicationUser>()
                 .HasMany(e => e.DoctorMedicalCenters)
                 .WithRequired(e => e.Doctor)
                 .HasForeignKey(e => e.DoctorId);
