@@ -7,7 +7,65 @@
   @Styles.Render("~/Content/css")
   @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
+<body style="direction:rtl !important; text-align:right">
+
+
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">مدیریت سیستم نوبت دهی</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#logoutForm">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    @Html.Partial("_LoginPartial")
+
+    @*<div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+       <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+        </ul>
+    </div>*@
+  </nav>
+
+
+  <div class="container-fluid" style="margin-top:20px">
+    <div class="row">
+      <nav class="col-sm-3  sidebar border rounded">
+        <div class="nav nav-pills flex-column nav-tabs border-bottom-0">
+          <div class="nav-item">
+            @Html.ActionLink("مدیریت پزشک", "Index", "DoctorManagement", new { area = "Admin" }, new { @class = "nav-link" })
+            <div class="nav nav-pills flex-column">
+              <div class="nav-item small pr-4">@Html.ActionLink("تعریف پزشک", "Create", "DoctorManagement", new { area = "Admin" }, new { @class = "nav-link" })</div>
+            </div>
+          </div>
+          <div class="nav-item">
+            @Html.ActionLink("مدیریت تخصص ها", "Index", "Specialties", new { area = "Admin" }, new { @class = "nav-link" })
+            <div class="nav nav-pills flex-column">
+              <div class="nav-item small pr-4">@Html.ActionLink("تعریف تخصص", "Create", "Specialties", new { area = "Admin" }, new { @class = "nav-link" })</div>
+            </div>
+          </div>
+          <div class="nav-item">
+            @Html.ActionLink("مدیریت مراکز درمانی", "Index", "MedicalCenters", new { area = "Admin" }, new { @class = "nav-link" })
+            <div class="nav nav-pills flex-column">
+              <div class="nav-item small pr-4">@Html.ActionLink("تعریف مرکز درمانی", "Create", "MedicalCenters", new { area = "Admin" }, new { @class = "nav-link" })</div>
+            </div>
+          </div>
+        </div>
+        <hr class="d-sm-none">
+      </nav>
+      <div class="col-sm-9">
+        @RenderBody()
+      </div>
+    </div>
+  </div>
+
   @*<div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -26,40 +84,39 @@
     </div>*@
 
   @*<div class="container body-content">
-    <div class="row">
-      <div class="col-sm-3">
-        <ul>
-          <li>
-            @Html.ActionLink("مدیریت پزشک", "Index", "DoctorManagement", new { area = "Admin" }, null)
-            <ul>
-              <li>@Html.ActionLink("تعریف پزشک", "Create", "DoctorManagement", new { area = "Admin" }, null)</li>
-            </ul>
-          </li>
-          <li>
-            @Html.ActionLink("مدیریت تخصص ها", "Index", "Specialties", new { area = "Admin" }, null)
-            <ul>
-              <li>@Html.ActionLink("تعریف تخصص", "Create", "Specialties", new { area = "Admin" }, null)</li>
-            </ul>
-          </li>
-          <li>
-            @Html.ActionLink("مدیریت مراکز درمانی", "Index", "MedicalCenters", new { area = "Admin" }, null)
-            <ul>
-              <li>@Html.ActionLink("تعریف مرکز درمانی", "Create", "MedicalCenters", new { area = "Admin" }, null)</li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <div class="col-sm-9">
-        @RenderBody()
+      <div class="row">
+        <div class="col-sm-3">
+          <ul>
+            <li>
+              @Html.ActionLink("مدیریت پزشک", "Index", "DoctorManagement", new { area = "Admin" }, null)
+              <ul>
+                <li>@Html.ActionLink("تعریف پزشک", "Create", "DoctorManagement", new { area = "Admin" }, null)</li>
+              </ul>
+            </li>
+            <li>
+              @Html.ActionLink("مدیریت تخصص ها", "Index", "Specialties", new { area = "Admin" }, null)
+              <ul>
+                <li>@Html.ActionLink("تعریف تخصص", "Create", "Specialties", new { area = "Admin" }, null)</li>
+              </ul>
+            </li>
+            <li>
+              @Html.ActionLink("مدیریت مراکز درمانی", "Index", "MedicalCenters", new { area = "Admin" }, null)
+              <ul>
+                <li>@Html.ActionLink("تعریف مرکز درمانی", "Create", "MedicalCenters", new { area = "Admin" }, null)</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="col-sm-9">
+          @RenderBody()
 
+        </div>
       </div>
-    </div>
-    <hr />
-    <footer>
-      <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-    </footer>
-  </div>*@
-
+      <hr />
+      <footer>
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+      </footer>
+    </div>*@
 
 
   @Scripts.Render("~/bundles/jquery")

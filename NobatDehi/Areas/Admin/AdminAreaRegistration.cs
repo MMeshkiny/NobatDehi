@@ -21,4 +21,6 @@ namespace NobatDehi.Areas.Admin
             );
         }
     }
+    [Authorize(Roles = "Admin")]
+    public abstract class AdminController : Controller { }
 }

@@ -16,15 +16,15 @@ namespace NobatDehi.Models
         }
 
         public int Id { get; set; }
-
+        [Display(Name = "نوع مرکز")]
         public int? TypeId { get; set; }
-
+        [Display(Name = "نام مرکز")]
         public string Name { get; set; }
-
+        [Display(Name = "آدرس مرکز")]
         public string Address { get; set; }
-
+        [Display(Name = "توضیحات")]
         public string Description { get; set; }
-
+        [Display(Name = "آدرس عکس")]
         public string ImageUrl { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

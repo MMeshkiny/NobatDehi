@@ -1,14 +1,16 @@
 ﻿@model IEnumerable<NobatDehi.Models.MedicalCenter>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "مراکز درمانی";
 }
 
-<h2>Index</h2>
+<h2>
+  لیست مراکز درمانی
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+  <span class="small">
+    (@Html.ActionLink("ایجاد مرکز جدید", "Create"))
+  </span>
+</h2>
 <table class="table">
     <tr>
         <th>
@@ -47,9 +49,9 @@
             @Html.DisplayFor(modelItem => item.ImageUrl)
         </td>*@
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("ویرایش", "Edit", new { id=item.Id }) |
             @*@Html.ActionLink("Details", "Details", new { id=item.Id }) |*@
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("حذف", "Delete", new { id=item.Id })
         </td>
     </tr>
 }

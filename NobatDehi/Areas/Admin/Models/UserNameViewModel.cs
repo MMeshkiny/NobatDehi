@@ -10,6 +10,7 @@ namespace NobatDehi.Models
     {
         [DataType(DataType.EmailAddress)]
         [Required]
+        [Display(Name = "نام کاربری")]
         public string UserName { get; set; }
     }
 }

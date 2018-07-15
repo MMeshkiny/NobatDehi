@@ -6,8 +6,9 @@ using System.Web.Mvc;
 
 namespace NobatDehi.Areas.Admin.Controllers
 {
-    public class PanelController : Controller
+    public class PanelController : AdminController
     {
+        
         // GET: Admin/Panel
         public ActionResult Index()
         {

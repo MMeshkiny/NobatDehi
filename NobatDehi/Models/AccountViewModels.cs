@@ -6,7 +6,7 @@ namespace NobatDehi.Models
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
-        [Display(Name = "Email")]
+        [Display(Name = "ایمیل")]
         public string Email { get; set; }
     }
 
@@ -49,16 +49,16 @@ namespace NobatDehi.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
+        [Display(Name = "ایمیل")]
         [EmailAddress]
         public string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "کلمه عبور")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "مرا بیاد بیاور؟")]
         public bool RememberMe { get; set; }
     }
 
@@ -66,22 +66,24 @@ namespace NobatDehi.Models
     {
         [Required]
         [EmailAddress]
-        [Display(Name = "Email")]
+        [Display(Name = "ایمیل")]
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "{0} باید حداقل {1} طول داشته باشد.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "کلمه عبور")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "تایید کلمه عبور")]
+        [Compare("Password", ErrorMessage = "کلمه عبور و تایید آن مطابقت ندارد.")]
         public string ConfirmPassword { get; set; }
         [Required]
+        [Display(Name = "نام")]
         public string FirstName { get; set; }
         [Required]
+        [Display(Name = "نام خانوادگی")]
         public string LastName { get; set; }
     }
 
@@ -110,7 +112,7 @@ namespace NobatDehi.Models
     {
         [Required]
         [EmailAddress]
-        [Display(Name = "Email")]
+        [Display(Name = "ایمیل")]
         public string Email { get; set; }
     }
 }

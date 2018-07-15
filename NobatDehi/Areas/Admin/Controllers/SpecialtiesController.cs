@@ -11,7 +11,7 @@ using NobatDehi.Models;
 
 namespace NobatDehi.Areas.Admin.Controllers
 {
-    public class SpecialtiesController : Controller
+    public class SpecialtiesController : AdminController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 

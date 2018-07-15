@@ -14,9 +14,9 @@ namespace NobatDehi.Models
         public string DoctorId { get; set; }
 
         public int? SpecialtyId { get; set; }
-
+        [Display(Name = "پزشک")]
         public virtual ApplicationUser Doctor { get; set; }
-
+        [Display(Name = "تخصص")]
         public virtual Specialty Specialty { get; set; }
     }
 }

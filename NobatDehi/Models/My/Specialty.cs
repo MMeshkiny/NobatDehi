@@ -18,8 +18,9 @@ namespace NobatDehi.Models
         public int Id { get; set; }
 
         [StringLength(50)]
+        [Display(Name = "تخصص")]
         public string Title { get; set; }
-
+        [Display(Name = "تخصص مادر")]
         public int? ParentId { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

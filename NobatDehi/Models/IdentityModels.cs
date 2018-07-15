@@ -22,8 +22,10 @@ namespace NobatDehi.Models
             return userIdentity;
         }
         [Required]
+        [Display(Name = "نام")]
         public string FirstName { get; set; }
         [Required]
+        [Display(Name = "نام خانوادگی")]
         public string LastName { get; set; }
 
         public ICollection<CancelTime> CancelTimes { get; internal set; }

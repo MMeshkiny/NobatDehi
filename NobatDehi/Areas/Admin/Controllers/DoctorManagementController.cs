@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace NobatDehi.Areas.Admin.Controllers
 {
-    public class DoctorManagementController : Controller
+    public class DoctorManagementController : AdminController
     {
         ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationUserManager _userManager;

@@ -39,39 +39,45 @@
   @using (Html.BeginForm("AddSpecialty", "DoctorManagement", FormMethod.Post, new { @class = "form-inline", role = "form" }))
   {
     @Html.AntiForgeryToken()
-      @Html.HiddenFor(x => x.Id);
-  <div class="form-group">
-    <label for="Spetialty" class="col-md-4 ">افزودن تخصص </label>
-    @*@Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })*@
-    @Html.DropDownList("Spetialty", spetialties, new { @class = "col-md-6 form-control" })
-    <div class="col-md-2">
-      <input type="submit" value="افزودن" class="btn btn-default" />
+    @Html.HiddenFor(x => x.Id);
+    <div class="form-group">
+      <label for="Spetialty" class="col-md-4 ">افزودن تخصص </label>
+      @*@Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })*@
+      @Html.DropDownList("Spetialty", spetialties, new { @class = "col-md-6 form-control" })
+      <div class="col-md-2">
+        <input type="submit" value="افزودن" class="btn btn-default" />
+      </div>
     </div>
-  </div>
-   
-  }
-  <table class="table">
-    <tr>
-      <th>
-        تخصص
-      </th>
-      <th></th>
-    </tr>
 
-    @foreach (var item in Model.DoctorSpecialties)
-    {
+  }
+
+  @if (Model.DoctorSpecialties.Count != 0)
+  {
+
+    <table class="table">
       <tr>
-        <td>
-          @Html.DisplayFor(modelItem => item.Specialty.Title)
-        </td>
-        <td>
-          @Html.ActionLink("حذف", "DeleteSpecialty", new { id = item.Id })
-        </td>
+        <th>
+          تخصص
+        </th>
+        <th></th>
       </tr>
-    }
-  </table>
+
+      @foreach (var item in Model.DoctorSpecialties)
+      {
+        <tr>
+          <td>
+            @Html.DisplayFor(modelItem => item.Specialty.Title)
+          </td>
+          <td>
+            @Html.ActionLink("حذف", "DeleteSpecialty", new { id = item.Id })
+          </td>
+        </tr>
+      }
+    </table>
+  }
+
 </div>
+<hr />
 <p>
-  @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-  @Html.ActionLink("Back to List", "Index")
+  @Html.ActionLink("بازگشت به لیست پزشکان", "Index")
 </p>
