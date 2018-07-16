@@ -200,6 +200,10 @@
     <Compile Include="Areas\Admin\Controllers\SpecialtiesController.cs" />
     <Compile Include="Areas\Admin\Models\AddDoctorSpetialtyViewModel.cs" />
     <Compile Include="Areas\Admin\Models\UserNameViewModel.cs" />
+    <Compile Include="Areas\Doctor\Controllers\PanelController.cs" />
+    <Compile Include="Areas\Doctor\Controllers\VisitTimeManagementController.cs" />
+    <Compile Include="Areas\Doctor\DoctorAreaRegistration.cs" />
+    <Compile Include="Areas\Doctor\Models\CreateVisitTimeViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -261,6 +265,11 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Areas\Doctor\Views\web.config" />
+    <Content Include="Areas\Doctor\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Doctor\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Doctor\Views\Panel\Index.cshtml" />
+    <Content Include="Areas\Doctor\Views\VisitTimeManagement\Add.cshtml" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />

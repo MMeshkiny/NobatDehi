@@ -1,44 +1,74 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@ViewBag.Title - My ASP.NET Application</title>
+  @Styles.Render("~/Content/css")
+  @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+<body style="direction:rtl !important; text-align:right">
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">مدیریت سیستم نوبت دهی</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#logoutForm">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+      <ul class="navbar-nav">
+        @*<li class="nav-item">
+          @Html.ActionLink("تعریف ساعات ویزیت", "Add", "VisitTimeManagement", null, new { @class = "nav-link" })
+        </li>*@
+        <li class="nav-item">
+          <a class="nav-link" href="#">نوبت گیری</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">پیگیری نوبت</a>
+        </li>
+      </ul>
+    </div>
+    @Html.Partial("_LoginPartial")
+
+
+  </nav>
+
+
+  <div class="container" style="margin-top:20px">
+    <div class="row">
+      @*<nav class="col-sm-3  sidebar border rounded">
+          <div class="nav nav-pills flex-column nav-tabs border-bottom-0">
+            <div class="nav-item">
+              @Html.ActionLink("مدیریت پزشک", "Index", "DoctorManagement", new { area = "Admin" }, new { @class = "nav-link" })
+              <div class="nav nav-pills flex-column">
+                <div class="nav-item small pr-4">@Html.ActionLink("تعریف پزشک", "Create", "DoctorManagement", new { area = "Admin" }, new { @class = "nav-link" })</div>
+              </div>
+            </div>
+            <div class="nav-item">
+              @Html.ActionLink("مدیریت تخصص ها", "Index", "Specialties", new { area = "Admin" }, new { @class = "nav-link" })
+              <div class="nav nav-pills flex-column">
+                <div class="nav-item small pr-4">@Html.ActionLink("تعریف تخصص", "Create", "Specialties", new { area = "Admin" }, new { @class = "nav-link" })</div>
+              </div>
+            </div>
+            <div class="nav-item">
+              @Html.ActionLink("مدیریت مراکز درمانی", "Index", "MedicalCenters", new { area = "Admin" }, new { @class = "nav-link" })
+              <div class="nav nav-pills flex-column">
+                <div class="nav-item small pr-4">@Html.ActionLink("تعریف مرکز درمانی", "Create", "MedicalCenters", new { area = "Admin" }, new { @class = "nav-link" })</div>
+              </div>
+            </div>
+          </div>
+          <hr class="d-sm-none">
+        </nav>*@
+      <div class="col-sm-12 border rounded">
+        @RenderBody()
+      </div>
+    </div>
+  </div>
+
+  @Scripts.Render("~/bundles/jquery")
+  @Scripts.Render("~/bundles/bootstrap")
+  @RenderSection("scripts", required: false)
 </body>
 </html>
