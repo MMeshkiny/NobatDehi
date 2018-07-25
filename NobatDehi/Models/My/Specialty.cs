@@ -25,5 +25,6 @@ namespace NobatDehi.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DoctorSpecialty> DoctorSpecialties { get; set; }
+        public virtual ICollection<VisitRecord> VisitRecords { get; set; }
     }
 }

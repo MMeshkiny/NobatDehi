@@ -31,5 +31,6 @@ namespace NobatDehi.Models
         public virtual ICollection<DoctorMedicalCenter> DoctorMedicalCenters { get; set; }
 
         public virtual MedicalCenterType MedicalCenterType { get; set; }
+        public virtual ICollection<VisitRecord> VisitRecords { get; set; }
     }
 }

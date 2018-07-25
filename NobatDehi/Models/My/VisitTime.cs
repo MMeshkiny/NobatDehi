@@ -39,8 +39,15 @@ namespace NobatDehi.Models
         public DateTime? PayDateTime { get; set; }
         [Display(Name = "ضریب کنسلی")]
         public double? CancelRate { get; set; }
+        [Display(Name = "کد رکورد ویزیت")]
+        public int? VisitRecordId { get; set; }
+
+
+
         [Display(Name = "بیمار")]
         public virtual ApplicationUser PatientUser { get; set; }
+        [Display(Name = "رکورد ویزیت")]
+        public virtual VisitRecord VisitRecord { get; set; }
         [Display(Name = "زمان های کنسل شده")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CancelTime> CancelTimes { get; set; }

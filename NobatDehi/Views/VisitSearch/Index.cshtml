@@ -1,0 +1,135 @@
+﻿@model NobatDehi.Models.VisitTimeSearchViewModel
+
+@{
+  ViewBag.Title = "Index";
+}
+
+
+@using (Html.BeginForm("Index", "VisitSearch", FormMethod.Post, new { @class = "" }))
+{
+<div class="form-row">
+  <div class="form-group col-6">
+    @Html.LabelFor(x => x.Start, htmlAttributes: new { @class = "control-label" })
+    @Html.EditorFor(x => x.Start, new { htmlAttributes = new { @class = "form-control", type = "text", id = "start" } })
+    <span id="span1"></span>
+  </div>
+  <div class="form-group col-3">
+    @Html.LabelFor(x => x.Duration, htmlAttributes: new { @class = "control-label" })
+    @Html.EditorFor(x => x.Duration, new { htmlAttributes = new { @class = "form-control" } })
+  </div>
+  
+</div>
+  <div class="form-row">
+    <div class="form-group col-4">
+      @Html.LabelFor(x => x.MedicalCenterId, htmlAttributes: new { @class = "control-label" })
+      @*@Html.EditorFor(x => x.MedicalCenterId, new { htmlAttributes = new { @class = "form-control" } })*@
+      @Html.DropDownList("MedicalCenterId", null, htmlAttributes: new { @class = "select2 form-control " })
+    </div>
+
+    <div class="form-group col-4">
+      @Html.LabelFor(x => x.DoctorId, htmlAttributes: new { @class = "control-label" })
+      @*@Html.EditorFor(x => x.DoctorId, new { htmlAttributes = new { @class = "form-control" } })*@
+      @Html.DropDownList("DoctorId", null, htmlAttributes: new { @class = "form-control select2" })
+    </div>
+    <div class="form-group col-4">
+      @Html.LabelFor(x => x.SpetialtyId, htmlAttributes: new { @class = "control-label" })
+      @*@Html.EditorFor(x => x.SpetialtyId, new { htmlAttributes = new { @class = "form-control" } })*@
+      @Html.DropDownList("SpetialtyId", null, htmlAttributes: new { @class = "form-control select2" })
+    </div>
+    
+  </div>
+  <div class="form-row">
+    <div class="form-group col-12 align-text-bottom">
+      <button type="submit" class="btn btn-primary btn-block" id="submit">جستجو</button>
+    </div>
+  </div>
+
+}
+
+
+<table class="table">
+  <tr>
+    <th>
+      مرکز درمانی
+    </th>
+    <th>
+      نوع مرکز
+    </th>
+    <th>
+      پزشک
+    </th>
+    <th>
+      تخصص
+    </th>
+    <th>
+      شروع
+    </th>
+    <th>
+      پایان
+    </th>
+    <th>
+      زمان ویزیت
+    </th>
+    <th>
+      تعداد
+    </th>
+    <th>
+      موجود
+    </th>
+    <th></th>
+  </tr>
+
+  @foreach (var item in Model.Results)
+  {
+    <tr>
+      <td>
+        @Html.DisplayFor(modelItem => item.MedicalCenterName)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.MedicalCenterTypeTitle)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.DoctorName)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.SpecialtyTitle)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Start)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.End)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Duration)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Count)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Available)
+      </td>
+      <td>
+        @Html.ActionLink("انتخاب", "Select", new { id = item.Id })
+      </td>
+    </tr>
+  }
+
+</table>
+
+
+
+
+
+@section scripts{
+
+
+  @Scripts.Render("~/bundles/select2")
+  @Scripts.Render("~/bundles/datepicker")
+
+  <script type="text/javascript">
+    $(function () {
+      $("#start, #span1").persianDatepicker();
+    });
+  </script>
+}

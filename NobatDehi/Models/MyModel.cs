@@ -32,7 +32,7 @@ namespace NobatDehi.Models
         public virtual DbSet<PayFactor> PayFactors { get; set; }
         public virtual DbSet<Specialty> Specialties { get; set; }
         public virtual DbSet<VisitTime> VisitTimes { get; set; }
-
+        public virtual DbSet<VisitRecord> VisitRecords { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -73,7 +73,26 @@ namespace NobatDehi.Models
                 .HasMany(e => e.DoctorMedicalCenters)
                 .WithRequired(e => e.Doctor)
                 .HasForeignKey(e => e.DoctorId);
-                
+
+            modelBuilder.Entity<ApplicationUser>()
+                .HasMany(e => e.VisitRecords)
+                .WithRequired(e => e.Doctor)
+                .HasForeignKey(e => e.DoctorId);
+
+            modelBuilder.Entity<MedicalCenter>()
+                .HasMany(e => e.VisitRecords)
+                .WithRequired(e => e.MedicalCenter)
+                .HasForeignKey(e => e.MedicalCenterId);
+
+            modelBuilder.Entity<Specialty>()
+                .HasMany(e => e.VisitRecords)
+                .WithOptional(e => e.Specialty)
+                .HasForeignKey(e => e.SpecialtyId);
+
+            modelBuilder.Entity<VisitRecord>()
+                .HasMany(e => e.VisitTimes)
+                .WithRequired(e => e.VisitRecord)
+                .HasForeignKey(e => e.VisitRecordId);
         }
     }
 

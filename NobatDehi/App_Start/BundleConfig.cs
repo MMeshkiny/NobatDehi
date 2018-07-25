@@ -20,11 +20,24 @@ namespace NobatDehi
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+                      "~/Scripts/bootstrap.js",
+                      "~/Scripts/popper.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/select2").Include(
+                                  "~/Scripts/select2.js",
+                                  "~/Scripts/Select2Custom.js"));
+            bundles.Add(new ScriptBundle("~/bundles/datepicker").Include(
+                                  "~/Scripts/datepicker/persianDatepicker.js",
+                                  "~/Scripts/datepicker/prism.js",
+                                  "~/Scripts/datepicker/vertical-responsive-menu.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/css/select2.css",
+                      "~/Content/site.css",
+                      "~/Content/datepicker/*.css"));
+
+            
         }
     }
 }

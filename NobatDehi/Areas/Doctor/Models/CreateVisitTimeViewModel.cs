@@ -10,7 +10,7 @@ namespace NobatDehi.Models
 {
     public class CreateVisitTimeViewModel
     {
-        [Required,DisplayName("مرکز درمانی")]
+        [Required, DisplayName("مرکز درمانی")]
         public int MedicalCenter { get; set; }
         [Required, DataType(DataType.DateTime), DisplayName("شروع")]
         public DateTime StartDateTime { get; set; }
@@ -22,9 +22,11 @@ namespace NobatDehi.Models
         public int Break { get; set; }
         [Required, DisplayName("تعداد ویزیت")]
         public int Count { get; set; }
-        [Required,DataType(DataType.Currency), DisplayName("هزینه ویزیت")]
+        [Required, DataType(DataType.Currency), DisplayName("هزینه ویزیت")]
         public int Fee { get; set; }
         [Required, DefaultValue(0), DisplayName("درصد کنسلی (صفر به معنای بازگشت کل مبلغ است)")]
         public int CancelRate { get; set; }
+        [Display(Name = "تخصص")]
+        public int? Spetiality { get; set; }
     }
 }

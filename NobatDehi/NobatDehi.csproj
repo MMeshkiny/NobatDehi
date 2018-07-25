@@ -193,6 +193,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\Tools.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\DoctorManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\MedicalCentersController.cs" />
@@ -207,6 +208,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\VisitSearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -216,7 +218,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MyModel.cs" />
     <Compile Include="Models\My\CancelTime.cs" />
-    <Compile Include="Models\My\Doctor.cs" />
+    <Compile Include="Models\My\VisitRecord.cs" />
     <Compile Include="Models\My\DoctorMedicalCenter.cs" />
     <Compile Include="Models\My\DoctorSpecialty.cs" />
     <Compile Include="Models\My\Factor.cs" />
@@ -225,6 +227,8 @@
     <Compile Include="Models\My\PayFactor.cs" />
     <Compile Include="Models\My\Specialty.cs" />
     <Compile Include="Models\My\VisitTime.cs" />
+    <Compile Include="Models\ViewModel\VisitSearchResultViewModel.cs" />
+    <Compile Include="Models\ViewModel\VisitTimeSearchViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -235,6 +239,18 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\select2.css" />
+    <Content Include="Content\css\select2.min.css" />
+    <Content Include="Content\datepicker\normalize.css" />
+    <Content Include="Content\datepicker\persianDatepicker-dark.css" />
+    <Content Include="Content\datepicker\persianDatepicker-default.css" />
+    <Content Include="Content\datepicker\persianDatepicker-latoja.css" />
+    <Content Include="Content\datepicker\persianDatepicker-lightorang.css" />
+    <Content Include="Content\datepicker\persianDatepicker-melon.css" />
+    <Content Include="Content\datepicker\prism.css" />
+    <Content Include="Content\datepicker\style.css" />
+    <Content Include="Content\datepicker\vertical-responsive-menu.min.css" />
+    <Content Include="Content\MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -259,26 +275,27 @@
     <Content Include="Areas\Admin\Views\MedicalCenters\Details.cshtml" />
     <Content Include="Areas\Admin\Views\MedicalCenters\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\MedicalCenters\Index.cshtml" />
+    <Content Include="Areas\Doctor\Views\web.config" />
+    <Content Include="Areas\Doctor\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Doctor\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Doctor\Views\Panel\Index.cshtml" />
+    <Content Include="Areas\Doctor\Views\VisitTimeManagement\Add.cshtml" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-reboot.min.css.map" />
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="Areas\Doctor\Views\web.config" />
-    <Content Include="Areas\Doctor\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Doctor\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Doctor\Views\Panel\Index.cshtml" />
-    <Content Include="Areas\Doctor\Views\VisitTimeManagement\Add.cshtml" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\bootstrap.min.js.map" />
-    <Content Include="Scripts\bootstrap.js.map" />
-    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
-    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\datepicker\persianDatepicker.js" />
+    <Content Include="Scripts\datepicker\persianDatepicker.min.js" />
+    <Content Include="Scripts\datepicker\prism.js" />
+    <Content Include="Scripts\datepicker\prism.min.js" />
+    <Content Include="Scripts\datepicker\vertical-responsive-menu.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -287,7 +304,65 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\i18n\af.js" />
+    <Content Include="Scripts\i18n\ar.js" />
+    <Content Include="Scripts\i18n\az.js" />
+    <Content Include="Scripts\i18n\bg.js" />
+    <Content Include="Scripts\i18n\bs.js" />
+    <Content Include="Scripts\i18n\ca.js" />
+    <Content Include="Scripts\i18n\cs.js" />
+    <Content Include="Scripts\i18n\da.js" />
+    <Content Include="Scripts\i18n\de.js" />
+    <Content Include="Scripts\i18n\dsb.js" />
+    <Content Include="Scripts\i18n\el.js" />
+    <Content Include="Scripts\i18n\en.js" />
+    <Content Include="Scripts\i18n\es.js" />
+    <Content Include="Scripts\i18n\et.js" />
+    <Content Include="Scripts\i18n\eu.js" />
+    <Content Include="Scripts\i18n\fa.js" />
+    <Content Include="Scripts\i18n\fi.js" />
+    <Content Include="Scripts\i18n\fr.js" />
+    <Content Include="Scripts\i18n\gl.js" />
+    <Content Include="Scripts\i18n\he.js" />
+    <Content Include="Scripts\i18n\hi.js" />
+    <Content Include="Scripts\i18n\hr.js" />
+    <Content Include="Scripts\i18n\hsb.js" />
+    <Content Include="Scripts\i18n\hu.js" />
+    <Content Include="Scripts\i18n\hy.js" />
+    <Content Include="Scripts\i18n\id.js" />
+    <Content Include="Scripts\i18n\is.js" />
+    <Content Include="Scripts\i18n\it.js" />
+    <Content Include="Scripts\i18n\ja.js" />
+    <Content Include="Scripts\i18n\km.js" />
+    <Content Include="Scripts\i18n\ko.js" />
+    <Content Include="Scripts\i18n\lt.js" />
+    <Content Include="Scripts\i18n\lv.js" />
+    <Content Include="Scripts\i18n\mk.js" />
+    <Content Include="Scripts\i18n\ms.js" />
+    <Content Include="Scripts\i18n\nb.js" />
+    <Content Include="Scripts\i18n\nl.js" />
+    <Content Include="Scripts\i18n\pl.js" />
+    <Content Include="Scripts\i18n\ps.js" />
+    <Content Include="Scripts\i18n\pt-BR.js" />
+    <Content Include="Scripts\i18n\pt.js" />
+    <Content Include="Scripts\i18n\ro.js" />
+    <Content Include="Scripts\i18n\ru.js" />
+    <Content Include="Scripts\i18n\sk.js" />
+    <Content Include="Scripts\i18n\sl.js" />
+    <Content Include="Scripts\i18n\sr-Cyrl.js" />
+    <Content Include="Scripts\i18n\sr.js" />
+    <Content Include="Scripts\i18n\sv.js" />
+    <Content Include="Scripts\i18n\th.js" />
+    <Content Include="Scripts\i18n\tr.js" />
+    <Content Include="Scripts\i18n\uk.js" />
+    <Content Include="Scripts\i18n\vi.js" />
+    <Content Include="Scripts\i18n\zh-CN.js" />
+    <Content Include="Scripts\i18n\zh-TW.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -297,11 +372,16 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MdBootstrapPersianDateTimePicker\jalaali.js" />
+    <Content Include="Scripts\MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\select2.js" />
+    <Content Include="Scripts\select2.min.js" />
+    <Content Include="Scripts\Select2Custom.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -342,6 +422,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\VisitSearch\Index.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
@@ -351,6 +432,9 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\VisitSearch\Select.cshtml" />
+    <Content Include="Views\Shared\EditorTemplate\DateTime.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -362,6 +446,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
