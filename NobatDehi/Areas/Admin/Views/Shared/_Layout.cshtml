@@ -12,7 +12,7 @@
 
 
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <a class="navbar-brand" href="#">مدیریت سیستم نوبت دهی</a>
+    @Html.ActionLink("مدیریت سیستم نوبت دهی", "Index", "Home", new { Area = "" }, new { @class = "navbar-brand" })
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#logoutForm">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -36,7 +36,7 @@
 
 
   <div class="container-fluid" style="margin-top:20px">
-    <div class="row">
+    <div class="row py-3">
       <nav class="col-sm-3  sidebar border rounded">
         <div class="nav nav-pills flex-column nav-tabs border-bottom-0">
           <div class="nav-item">
@@ -60,7 +60,7 @@
         </div>
         <hr class="d-sm-none">
       </nav>
-      <div class="col-sm-9">
+      <div class="col-sm-9 ">
         @RenderBody()
       </div>
     </div>

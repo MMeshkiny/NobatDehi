@@ -16,6 +16,7 @@ namespace NobatDehi.Models
             SpetialtyId = 0;
             DoctorId = null;
             Page = 1;
+            ResultCount = 0;
             Results = new List<VisitSearchResultViewModel>();
         }
         [DataType(DataType.Date)]
@@ -31,6 +32,8 @@ namespace NobatDehi.Models
         public string DoctorId { get; set; }
         [Display(Name = "صفحه")]
         public int Page { get; set; }
+        [Display(Name ="تعداد نتایج")]
+        public int ResultCount { get; set; }
         [Display(Name = "نتایج")]
         public IEnumerable<VisitSearchResultViewModel> Results { get; set; }
     }

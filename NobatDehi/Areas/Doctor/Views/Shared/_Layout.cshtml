@@ -12,7 +12,7 @@
 
 
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <a class="navbar-brand" href="#">مدیریت سیستم نوبت دهی</a>
+    @Html.ActionLink("مدیریت سیستم نوبت دهی", "Index","Home", new { Area = "" }, new { @class = "navbar-brand" })
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#logoutForm">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -20,7 +20,7 @@
 
       <ul class="navbar-nav">
         <li class="nav-item">
-          @Html.ActionLink("تعریف ساعات ویزیت", "Add", "VisitTimeManagement", null, new { @class= "nav-link" })
+          @Html.ActionLink("تعریف ساعات ویزیت", "Add", "VisitTimeManagement", null, new { @class = "nav-link" })
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">گزارش عملکرد</a>
@@ -32,7 +32,7 @@
     </div>
     @Html.Partial("_LoginPartial")
 
-    
+
   </nav>
 
 
@@ -61,7 +61,7 @@
         </div>
         <hr class="d-sm-none">
       </nav>*@
-      <div class="col-sm-12 border rounded">
+      <div class="col-sm-12 border rounded py-3">
         @RenderBody()
       </div>
     </div>

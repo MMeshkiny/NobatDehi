@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace NobatDehi
 {
@@ -22,5 +23,16 @@ namespace NobatDehi
             var day = calendar.GetDayOfMonth(d);
             return new DateTime(year, month, day, d.Hour, d.Minute, d.Second);
         }
+
+        static public string TimeOnly(DateTime d)
+        {
+            return d.ToShortTimeString();
+        }
     }
+    [Authorize()]
+    public abstract class UserController : Controller { }
+    [Authorize(Roles = "Admin")]
+    public abstract class AdminController : Controller { }
+    [Authorize(Roles = "Doctor")]
+    public abstract class DoctorController : Controller { }
 }

@@ -48,6 +48,8 @@ namespace NobatDehi.Models
             return new ApplicationDbContext();
         }
 
+        public System.Data.Entity.DbSet<NobatDehi.Models.PayViewModel> PayViewModels { get; set; }
+
         //public System.Data.Entity.DbSet<NobatDehi.Models.VisitSearchResultViewModel> VisitSearchResultViewModels { get; set; }
 
         //public System.Data.Entity.DbSet<NobatDehi.Models.ApplicationUser> ApplicationUsers { get; set; }

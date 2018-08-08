@@ -1,0 +1,16 @@
+﻿@using NobatDehi.Models
+@model NobatDehi.Models.PayViewModel
+
+@{
+    ViewBag.Title = "Pay";
+}
+
+<h2>Pay</h2>
+
+@using (Html.BeginForm("BankCallBack","Buy",FormMethod.Get))
+{
+    @Html.HiddenFor(x=>x.Fee)
+    @Html.HiddenFor(x=>x.Tracking)
+    <button name="PayStatus" class="btn btn-lg btn-success" value="@PayStatus.Success">Yes</button>
+    <button name="PayStatus" class="btn btn-lg btn-danger" value="@PayStatus.Unsuccess">No</button>
+}

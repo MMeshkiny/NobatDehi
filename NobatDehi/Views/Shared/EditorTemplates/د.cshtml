@@ -1,0 +1,13 @@
+﻿@model System.DateTime?
+@if (Model.HasValue)
+{
+  string d = NobatDehi.Tools.JalaliFromGorg(Model.Value).ToString("yyyy/M/d");
+  @Html.TextBoxFor(x => x, d, new { @type = "text", @class = "DateTimePicker form-control", autoComplete = "off" })
+}
+else
+{
+  string d = NobatDehi.Tools.JalaliFromGorg(DateTime.Now).ToString("yyyy/M/d");
+  @Html.TextBoxFor(x => x, d, new { @type = "text", @class = "DateTimePicker form-control", autoComplete = "off" })
+}
+
+

@@ -1,2 +1,8 @@
-﻿@model System.DateTime
-  @NobatDehi.Tools.JalaliFromGorg(Model).ToString("hh:mm yy/MM/dd")
+﻿@model System.DateTime?
+@if (Model.HasValue)
+{
+  @NobatDehi.Tools.JalaliFromGorg(Model.Value).ToString("hh:mm yyyy/M/d")
+}
+
+
+

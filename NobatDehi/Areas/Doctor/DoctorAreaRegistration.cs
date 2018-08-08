@@ -22,6 +22,5 @@ namespace NobatDehi.Areas.Doctor
         }
         
     }
-    [Authorize(Roles = "Doctor")]
-    public abstract class DoctorController : Controller { }
+    
 }

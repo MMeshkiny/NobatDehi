@@ -29,7 +29,8 @@ namespace NobatDehi
             bundles.Add(new ScriptBundle("~/bundles/datepicker").Include(
                                   "~/Scripts/datepicker/persianDatepicker.js",
                                   "~/Scripts/datepicker/prism.js",
-                                  "~/Scripts/datepicker/vertical-responsive-menu.min.js"));
+                                  "~/Scripts/datepicker/vertical-responsive-menu.min.js",
+                                  "~/Scripts/datepicker/datePickerCustom.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

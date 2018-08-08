@@ -14,5 +14,15 @@ namespace NobatDehi.Areas.Admin.Controllers
         {
             return View();
         }
+
+        public ActionResult Visited(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ActionResult Delete(long id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

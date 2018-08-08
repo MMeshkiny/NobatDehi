@@ -206,6 +206,8 @@
     <Compile Include="Areas\Doctor\DoctorAreaRegistration.cs" />
     <Compile Include="Areas\Doctor\Models\CreateVisitTimeViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BuyController.cs" />
+    <Compile Include="Controllers\FakeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\VisitSearchController.cs" />
@@ -227,6 +229,7 @@
     <Compile Include="Models\My\PayFactor.cs" />
     <Compile Include="Models\My\Specialty.cs" />
     <Compile Include="Models\My\VisitTime.cs" />
+    <Compile Include="Models\ViewModel\PayViewModel.cs" />
     <Compile Include="Models\ViewModel\VisitSearchResultViewModel.cs" />
     <Compile Include="Models\ViewModel\VisitTimeSearchViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -286,11 +289,13 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Areas\Doctor\Views\VisitTimeManagement\Select.cshtml" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\datepicker\datePickerCustom.js" />
     <Content Include="Scripts\datepicker\persianDatepicker.js" />
     <Content Include="Scripts\datepicker\persianDatepicker.min.js" />
     <Content Include="Scripts\datepicker\prism.js" />
@@ -433,8 +438,12 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\VisitSearch\Select.cshtml" />
-    <Content Include="Views\Shared\EditorTemplate\DateTime.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\د.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Normal.cshtml" />
+    <Content Include="Views\Fake\Pay.cshtml" />
+    <Content Include="Views\Buy\BankCallBack.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\GUID.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

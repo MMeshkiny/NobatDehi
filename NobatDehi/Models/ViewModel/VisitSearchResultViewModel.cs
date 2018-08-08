@@ -21,7 +21,7 @@ namespace NobatDehi.Models
                 
                 Id = value.Id;
                 MedicalCenterName = value.MedicalCenter?.Name;
-                MedicalCenterTypeTitle = value.MedicalCenter?.MedicalCenterType.Title;
+                MedicalCenterTypeTitle = value.MedicalCenter?.MedicalCenterType?.Title;
                 DoctorName = value.Doctor.FirstName + " " + value.Doctor.LastName;
                 SpecialtyTitle = value.Specialty?.Title;
                 Start = (value.Start);

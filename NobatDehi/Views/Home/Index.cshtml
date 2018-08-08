@@ -3,29 +3,30 @@
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>سیستم نوبت دهی</h1>
+    <p class="lead">به وبسایت خودتان خوش آمدید. امیدواریم همیشه سلامت باشید اما اگر وقت ویزیت نیاز دارید ما همراه شما خواهیم بود</p>
+    <p><a href="#" class="btn btn-primary btn-lg">بیشتر بدانید &raquo;</a></p>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>رزرو وقت ویزیت</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            در اینجا شما میتوانید مرکز درمانی، تخصص، پزشک و بازه زمانی مورد نظرتان را جستجو و رزرو کنید
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p>
+      @Html.ActionLink("شروع »", "Index","VisitSearch",null,new { @class= "btn btn-default" })
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h2>عضویت</h2>
+        <p>برای پشتیبانی هرچه بهتر از شما نیاز است تا در سامانه عضو شوید</p>
+        <p>
+          @Html.ActionLink("عضویت »", "Register", "Account", new { area = "" }, htmlAttributes: new { id = "registerLink", @class = "btn btn-default" })
+        </p>
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2>پیگیری نوبت</h2>
+        <p>چنانچه نوبتی رزرو کردید اینجا میتوانید آن را مدیریت کنید</p>
+        <p><a class="btn btn-default" href="#">پیگیری &raquo;</a></p>
     </div>
 </div>

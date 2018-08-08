@@ -33,7 +33,7 @@ namespace NobatDehi.Controllers
             ViewBag.SpetialtyId = new SelectList(db.Specialties, "Id", "Title");
             ViewBag.DoctorId = new SelectList(db.Users.Where(x => x.Roles.Any(y => y.RoleId == "2")), "Id", "LastName");
             VisitTimeSearchViewModel model = new VisitTimeSearchViewModel();
-            model.Start = Tools.JalaliFromGorg(model.Start);
+            //model.Start = Tools.JalaliFromGorg(model.Start);
             return View(model);
         }
         [HttpPost]
@@ -43,36 +43,44 @@ namespace NobatDehi.Controllers
             model.Start = Tools.GorgFromJalali(model.Start);
             var end = model.Start.AddDays(model.Duration);
 
-            var z = db.VisitRecords
-                .Where(x => model.DoctorId == null || model.DoctorId == x.DoctorId)
-                .Where(x => model.MedicalCenterId == 0 || model.MedicalCenterId == x.MedicalCenterId)
-                .Where(x => model.SpetialtyId == 0 || !x.SpecialtyId.HasValue || model.SpetialtyId == x.SpecialtyId)
-                .ToList();
-
             var result = db.VisitRecords
                 .Where(x => model.DoctorId == null || model.DoctorId == x.DoctorId)
                 .Where(x => model.MedicalCenterId == 0 || model.MedicalCenterId == x.MedicalCenterId)
                 .Where(x => model.SpetialtyId == 0 || !x.SpecialtyId.HasValue || model.SpetialtyId == x.SpecialtyId)
                 .Where(x => x.Start >= model.Start && x.Start >= DateTime.Now && x.Start <= end)
-                .OrderBy(x => x.Start).Skip((model.Page - 1) * pageLenght)
+                .OrderBy(x => x.Start);
+            //var result = db.VisitRecords
+            //    .Where(x => model.DoctorId == null || model.DoctorId == x.DoctorId)
+            //    .Where(x => model.MedicalCenterId == 0 || model.MedicalCenterId == x.MedicalCenterId)
+            //    .Where(x => model.SpetialtyId == 0 || !x.SpecialtyId.HasValue || model.SpetialtyId == x.SpecialtyId)
+            //    .Where(x => x.Start >= model.Start && x.Start <= end)
+            //    .OrderBy(x => x.Start);
+            model.ResultCount = result.Count();
+            var resultList = result.Skip((model.Page - 1) * pageLenght)
                 .Take(pageLenght).ToList();
 
 
-            model.Results = result.Select(x => new VisitSearchResultViewModel() { visitRecord = x });
+            model.Results = resultList.Select(x => new VisitSearchResultViewModel() { visitRecord = x });
             ViewBag.MedicalCenterId = new SelectList(db.MedicalCenters, "Id", "Name");
             ViewBag.SpetialtyId = new SelectList(db.Specialties, "Id", "Title");
             ViewBag.DoctorId = new SelectList(db.Users.Where(x => x.Roles.Any(y => y.RoleId == "2")), "Id", "LastName");
-            model.Start = Tools.JalaliFromGorg(model.Start);
+            //model.Start = Tools.JalaliFromGorg(model.Start);
             return View(model);
 
         }
 
         public ActionResult Select(int id)
         {
-            return View();
+            VisitRecord visitRecord = db.VisitRecords.Find(id);
+            if (visitRecord==null)
+            {
+                return HttpNotFound();
+            }
+            
+            return View(visitRecord);
         }
 
-        
+
 
     }
 }
