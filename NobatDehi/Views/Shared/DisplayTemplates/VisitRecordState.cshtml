@@ -1,0 +1,27 @@
+﻿@using NobatDehi.Models
+@model VisitRecordState
+
+@{
+    List<string> result =new List<string>();
+    if (Model.HasFlag(VisitRecordState.Active))
+    {
+      result.Add("فعال");
+    }
+    if (Model.HasFlag(VisitRecordState.Deactive))
+    {
+      result.Add("غیر فعال");
+    }
+    if (Model.HasFlag(VisitRecordState.Surgery))
+    {
+      result.Add("وقت عمل");
+    }
+    if (Model.HasFlag(VisitRecordState.DoctorRemoved))
+    {
+      result.Add("لغو توسط پزشک");
+    }
+
+  string text = result.Aggregate((i, j) => i + " | " + j);
+
+}
+
+<span>@text</span>

@@ -34,6 +34,7 @@ namespace NobatDehi.Controllers
             visitTime.PatientUserId = User.Identity.GetUserId();
             visitTime.ReserveDateTime = DateTime.Now;
             visitTime.VisitRecord.Reserved++;
+            visitTime.State = VisitTimeState.PreReserved;
             db.SaveChanges();
             PayViewModel viewModel = new PayViewModel()
             {
@@ -55,6 +56,8 @@ namespace NobatDehi.Controllers
             }
             factor.PayedDateTime = DateTime.Now;
             factor.VisitTime.PayDateTime = DateTime.Now;
+            factor.VisitTime.State = VisitTimeState.Reserved;
+
             db.PayFactors.Add(new PayFactor
             {
                 Fee = factor.Fee,

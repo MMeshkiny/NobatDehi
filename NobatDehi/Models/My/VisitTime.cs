@@ -1,3 +1,5 @@
+using System.ComponentModel;
+
 namespace NobatDehi.Models
 {
     using System;
@@ -17,20 +19,20 @@ namespace NobatDehi.Models
         }
 
         public long Id { get; set; }
-        [Display(Name ="ترتیب")]
+        [Display(Name = "ترتیب")]
         public int? Order { get; set; }
         [Display(Name = "شروع")]
         public DateTime? Start { get; set; }
         [Display(Name = "کد بیمار")]
         public string PatientUserId { get; set; }
-        [Display(Name = "حذف شده")]
-        public bool Removed { get; set; }
+        //[Display(Name = "حذف شده")]
+        //public bool Removed { get; set; }
         [Display(Name = "کد مرکز درمانی")]
         public int? DoctorMedicalCenterId { get; set; }
         [Display(Name = "مدت ویزیت")]
         public byte? VisitDurationMin { get; set; }
-        [Display(Name = "ویزیت شده")]
-        public bool? Visited { get; set; }
+        //[Display(Name = "ویزیت شده")]
+        //public bool? Visited { get; set; }
         [Display(Name = "مبلغ")]
         public int? Fee { get; set; }
         [Display(Name = "تاریخ رزرو")]
@@ -41,6 +43,9 @@ namespace NobatDehi.Models
         public double? CancelRate { get; set; }
         [Display(Name = "کد رکورد ویزیت")]
         public int? VisitRecordId { get; set; }
+        [DefaultValue(VisitRecordState.Active)]
+        [Display(Name = "وضعیت")]
+        public VisitTimeState State { get; set; }
 
 
 
@@ -56,5 +61,11 @@ namespace NobatDehi.Models
         [Display(Name = "فاکتور ها")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Factor> Factors { get; set; }
+
+
+        [NotMapped]
+        public DateTime? End => Start.HasValue && VisitDurationMin.HasValue
+            ? (DateTime?) Start.Value.AddMinutes(VisitDurationMin.Value)
+            : null;
     }
 }

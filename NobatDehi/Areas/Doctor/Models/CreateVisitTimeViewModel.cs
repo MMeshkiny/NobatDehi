@@ -28,5 +28,7 @@ namespace NobatDehi.Models
         public int CancelRate { get; set; }
         [Display(Name = "تخصص")]
         public int? Spetiality { get; set; }
+        [Display(Name = "زمان ویزیت های دارای تداخل")]
+        public ICollection<VisitTime> ConfilictedVisitTimes { get; set; }
     }
 }

@@ -29,8 +29,9 @@ namespace NobatDehi.Controllers
         // GET: VisitSearch
         public ActionResult Index()
         {
-            ViewBag.MedicalCenterId = new SelectList(db.MedicalCenters, "Id", "Name");
-            ViewBag.SpetialtyId = new SelectList(db.Specialties, "Id", "Title");
+            var medicalCenterId = new SelectList(db.MedicalCenters, "Id", "Name");
+            ViewBag.MedicalCenterId = medicalCenterId;
+            ViewBag.SpetialtyId = new SelectList(db.Specialties, "Id", "DisplayTitle");
             ViewBag.DoctorId = new SelectList(db.Users.Where(x => x.Roles.Any(y => y.RoleId == "2")), "Id", "LastName");
             VisitTimeSearchViewModel model = new VisitTimeSearchViewModel();
             //model.Start = Tools.JalaliFromGorg(model.Start);
@@ -43,18 +44,20 @@ namespace NobatDehi.Controllers
             model.Start = Tools.GorgFromJalali(model.Start);
             var end = model.Start.AddDays(model.Duration);
 
-            var result = db.VisitRecords
-                .Where(x => model.DoctorId == null || model.DoctorId == x.DoctorId)
-                .Where(x => model.MedicalCenterId == 0 || model.MedicalCenterId == x.MedicalCenterId)
-                .Where(x => model.SpetialtyId == 0 || !x.SpecialtyId.HasValue || model.SpetialtyId == x.SpecialtyId)
-                .Where(x => x.Start >= model.Start && x.Start >= DateTime.Now && x.Start <= end)
-                .OrderBy(x => x.Start);
             //var result = db.VisitRecords
+            //    .Where(x=>x.State.HasFlag(VisitRecordState.Active))
             //    .Where(x => model.DoctorId == null || model.DoctorId == x.DoctorId)
             //    .Where(x => model.MedicalCenterId == 0 || model.MedicalCenterId == x.MedicalCenterId)
             //    .Where(x => model.SpetialtyId == 0 || !x.SpecialtyId.HasValue || model.SpetialtyId == x.SpecialtyId)
-            //    .Where(x => x.Start >= model.Start && x.Start <= end)
+            //    .Where(x => x.Start >= model.Start && x.Start >= DateTime.Now && x.Start <= end)
             //    .OrderBy(x => x.Start);
+            var result = db.VisitRecords
+                .Where(x => x.State.HasFlag(VisitRecordState.Active))
+                .Where(x => model.DoctorId == null || model.DoctorId == x.DoctorId)
+                .Where(x => model.MedicalCenterId == 0 || model.MedicalCenterId == x.MedicalCenterId)
+                .Where(x => model.SpetialtyId == 0 || !x.SpecialtyId.HasValue || model.SpetialtyId == x.SpecialtyId)
+                .Where(x => x.Start >= model.Start && x.Start <= end)
+                .OrderBy(x => x.Start);
             model.ResultCount = result.Count();
             var resultList = result.Skip((model.Page - 1) * pageLenght)
                 .Take(pageLenght).ToList();
@@ -62,7 +65,7 @@ namespace NobatDehi.Controllers
 
             model.Results = resultList.Select(x => new VisitSearchResultViewModel() { visitRecord = x });
             ViewBag.MedicalCenterId = new SelectList(db.MedicalCenters, "Id", "Name");
-            ViewBag.SpetialtyId = new SelectList(db.Specialties, "Id", "Title");
+            ViewBag.SpetialtyId = new SelectList(db.Specialties, "Id", "DisplayTitle");
             ViewBag.DoctorId = new SelectList(db.Users.Where(x => x.Roles.Any(y => y.RoleId == "2")), "Id", "LastName");
             //model.Start = Tools.JalaliFromGorg(model.Start);
             return View(model);

@@ -28,6 +28,9 @@ namespace NobatDehi
         {
             return d.ToShortTimeString();
         }
+
+        public static void NotifyToUser(string UserId)
+        { }
     }
     [Authorize()]
     public abstract class UserController : Controller { }

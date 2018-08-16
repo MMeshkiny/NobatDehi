@@ -93,6 +93,11 @@ namespace NobatDehi.Models
                 .HasMany(e => e.VisitTimes)
                 .WithRequired(e => e.VisitRecord)
                 .HasForeignKey(e => e.VisitRecordId);
+
+            modelBuilder.Entity<Specialty>()
+                .HasMany(x => x.ChildSpetialities)
+                .WithOptional(x => x.ParentSpecialty)
+                .HasForeignKey(x => x.ParentId);
         }
     }
 

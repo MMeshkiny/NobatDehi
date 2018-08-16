@@ -17,15 +17,16 @@
         <dd>
             @Html.DisplayFor(model => model.Title)
         </dd>
-
+      @if(Model.ParentId!=null)
+      { 
         <dt>
             @Html.DisplayNameFor(model => model.ParentId)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ParentId)
+            @Html.DisplayFor(model => model.ParentSpecialty.Title)
         </dd>
-
+      }
     </dl>
 
     @using (Html.BeginForm()) {

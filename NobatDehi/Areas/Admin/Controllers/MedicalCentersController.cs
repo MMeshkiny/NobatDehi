@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using NobatDehi.Models;
+using EntityState = System.Data.Entity.EntityState;
 
 namespace NobatDehi.Areas.Admin.Controllers
 {

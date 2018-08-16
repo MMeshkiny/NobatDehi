@@ -10,7 +10,7 @@ namespace NobatDehi.Models
     public class VisitRecord
     {
         public int Id { get; set; }
-        [Display(Name ="کد پزشک")]
+        [Display(Name = "کد پزشک")]
         public string DoctorId { get; set; }
         [Display(Name = "کد مرکز درمانی")]
         public int MedicalCenterId { get; set; }
@@ -25,7 +25,7 @@ namespace NobatDehi.Models
         [Display(Name = "رزرو شده")]
         [DefaultValue(0)]
         public int Reserved { get; set; }
-        [Display(Name ="حذف شده")]
+        [Display(Name = "حذف شده")]
         public int Removed { get; set; }
         [Display(Name = "کد تخصص")]
         public int? SpecialtyId { get; set; }
@@ -33,6 +33,11 @@ namespace NobatDehi.Models
         public int Fee { get; set; }
         [Display(Name = "ضریب کنسلی")]
         public int CancelRate { get; set; }
+        [DefaultValue(VisitRecordState.Active)]
+        [Display(Name = "وضعیت")]
+        public VisitRecordState State { get; set; }
+
+
 
         [Display(Name = "پزشک")]
         public virtual ApplicationUser Doctor { get; set; }
@@ -40,7 +45,7 @@ namespace NobatDehi.Models
         public virtual MedicalCenter MedicalCenter { get; set; }
         [Display(Name = "تخصص")]
         public virtual Specialty Specialty { get; set; }
-        [Display(Name ="ویزیت ها")]
+        [Display(Name = "ویزیت ها")]
         public virtual ICollection<VisitTime> VisitTimes { get; set; }
     }
 }

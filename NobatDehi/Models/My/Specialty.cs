@@ -22,9 +22,15 @@ namespace NobatDehi.Models
         public string Title { get; set; }
         [Display(Name = "تخصص مادر")]
         public int? ParentId { get; set; }
+        [Display(Name = "توضیحات")] public string Description { get; set; }
+
+        [NotMapped]
+        public string DisplayTitle => string.IsNullOrWhiteSpace(Description) ? Title : $"{Title} ({Description})";
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DoctorSpecialty> DoctorSpecialties { get; set; }
         public virtual ICollection<VisitRecord> VisitRecords { get; set; }
+        public virtual Specialty ParentSpecialty { get; set; }
+        public ICollection<Specialty> ChildSpetialities { get; set; }
     }
 }

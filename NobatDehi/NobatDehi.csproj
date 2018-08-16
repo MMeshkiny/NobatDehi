@@ -48,6 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFrameworkExtension, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFrameworkExtension.2.0.1\lib\EntityFrameworkExtension.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.DependencyCollector, Version=2.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.6.4\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
     </Reference>
@@ -87,6 +90,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFrameworkExtension.2.0.1\lib\System.Data.Entity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
@@ -228,7 +234,9 @@
     <Compile Include="Models\My\MedicalCenterType.cs" />
     <Compile Include="Models\My\PayFactor.cs" />
     <Compile Include="Models\My\Specialty.cs" />
+    <Compile Include="Models\Enum\VisitRecordState.cs" />
     <Compile Include="Models\My\VisitTime.cs" />
+    <Compile Include="Models\Enum\VisitTimeState.cs" />
     <Compile Include="Models\ViewModel\PayViewModel.cs" />
     <Compile Include="Models\ViewModel\VisitSearchResultViewModel.cs" />
     <Compile Include="Models\ViewModel\VisitTimeSearchViewModel.cs" />
@@ -290,6 +298,8 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Areas\Doctor\Views\VisitTimeManagement\Select.cshtml" />
+    <Content Include="Areas\Doctor\Views\VisitTimeManagement\AddSurgery.cshtml" />
+    <Content Include="Areas\Doctor\Views\VisitTimeManagement\AddSurgeryConfirm.cshtml" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -438,12 +448,14 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\VisitSearch\Select.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\د.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Normal.cshtml" />
     <Content Include="Views\Fake\Pay.cshtml" />
     <Content Include="Views\Buy\BankCallBack.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\GUID.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\VisitRecordState.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\VisitTimeState.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -37,11 +37,11 @@
       @Html.DisplayNameFor(model => model.PayDateTime)
     </th>
     <th>
-      @Html.DisplayNameFor(model => model.Removed)
+      @Html.DisplayNameFor(model => model.State)
     </th>
-    <th>
+    @*<th>
       @Html.DisplayNameFor(model => model.Visited)
-    </th>
+    </th>*@
     <th></th>
   </tr>
 
@@ -73,11 +73,11 @@
       @Html.DisplayFor(model => item.PayDateTime)
     </td>
     <td>
-      @Html.DisplayFor(model => item.Removed)
+      @Html.DisplayFor(model => item.State)
     </td>
-    <td>
+    @*<td>
       @Html.DisplayFor(model => item.Visited)
-    </td>
+    </td>*@
     <td>
       @Html.ActionLink("ویزیت شد", "Visited", new { id = item.Id }) |
       @*@Html.ActionLink("Details", "Details", new { id=item.Id }) |*@

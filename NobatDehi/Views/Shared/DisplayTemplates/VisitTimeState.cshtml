@@ -1,0 +1,37 @@
+﻿@using NobatDehi.Models
+@model VisitTimeState
+
+  @{
+      List<string> result = new List<string>();
+      if (Model.HasFlag(VisitTimeState.Active))
+      {
+        result.Add("فعال");
+      }
+      if (Model.HasFlag(VisitTimeState.Deactive))
+      {
+        result.Add("غیر فعال");
+      }
+      if (Model.HasFlag(VisitTimeState.Surgery))
+      {
+        result.Add("وقت عمل");
+      }
+      if (Model.HasFlag(VisitTimeState.DoctorCancel))
+      {
+        result.Add("لغو توسط پزشک");
+      }
+      if (Model.HasFlag(VisitTimeState.Reserved))
+      {
+        result.Add("رزرو شده");
+      }
+      if (Model.HasFlag(VisitTimeState.PreReserved))
+      {
+        result.Add("در حال رزرو شدن");
+      }
+
+      string text = result.Aggregate((i, j) => i + " | " + j);
+
+  }
+
+<span>@text</span>
+
+@*@Html.DisplayText(text)*@

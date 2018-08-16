@@ -1,4 +1,5 @@
-﻿@model NobatDehi.Models.VisitRecord
+﻿@using NobatDehi.Models
+@model NobatDehi.Models.VisitRecord
 @{
   ViewBag.Title = "Select";
 }
@@ -9,10 +10,11 @@
   <div class="card-deck">
     @foreach (var item in Model.VisitTimes)
     {
-      <div class="card  @(item.ReserveDateTime!=null||item.Removed?"shadow-sm":"shadow")">
+      <div class="card  @(item.State.HasFlag(VisitTimeState.Deactive)?"shadow-sm":"shadow")">
         <div class="card-body text-center form-check">
           <label class="form-check-label">
-            <input type="radio" class="form-check-input" @(item.ReserveDateTime!=null||item.Removed?"disabled":"") name="Id" value="@item.Id"> <span class="card-text mr-3">@Tools.TimeOnly(item.Start.Value)</span>
+            <input type="radio" class="form-check-input" @(item.State.HasFlag(VisitTimeState.Deactive)?"disabled":"") name="Id" value="@item.Id"> <span class="card-text mr-3">@Tools.TimeOnly(item.Start.Value)<br />@Html.DisplayFor(x=>item.State)</span>
+            
           </label>
 
         </div>
